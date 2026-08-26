@@ -5,6 +5,7 @@
 import PostHogSnippet from "../components/PostHogSnippet.astro";
 import Atribucion from "../components/Atribucion.astro";
 import PabloActor from "../components/onboarding/PabloActor.astro";
+import AgentationDev from "../components/dev/AgentationDev";
 import MetaPixel from "../components/MetaPixel.astro";
 import TikTokPixel from "../components/TikTokPixel.astro";
 const base = "/onboarding";
@@ -97,5 +98,8 @@ const base = "/onboarding";
 
     <!-- Motor de navegación -->
     <script src="../scripts/onboarding.js"></script>
+
+    {/* Agentation: barra de feedback visual, solo en desarrollo. */}
+    {import.meta.env.DEV && <AgentationDev client:only="react" />}
   </body>
 </html>

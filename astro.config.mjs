@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+// Solo para montar Agentation (herramienta local de feedback visual) como isla.
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,6 +17,7 @@ export default defineConfig({
     '/fiestas-patrias': '/',
   },
   integrations: [
+    react(),
     sitemap({
       // Landings escondidas de campaña / previews: fuera del sitemap
       filter: (page) => !page.includes('/fiestas-patrias') && !page.includes('/webinar-prueba'),

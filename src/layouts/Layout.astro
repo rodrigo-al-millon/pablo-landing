@@ -8,6 +8,7 @@ import Atribucion from "../components/Atribucion.astro";
 import MetaPixel from "../components/MetaPixel.astro";
 import TikTokPixel from "../components/TikTokPixel.astro";
 import { IS_LIVE } from "../siteConfig";
+import AgentationDev from "../components/dev/AgentationDev";
 
 interface Props {
   title?: string;
@@ -189,5 +190,7 @@ const ogImage = `${siteUrl}/Logo.png`;
          auto-guarda por pathname dentro de su script) */
     }
     {!hideMoneda && <MonedaPopup />}
+    {/* Agentation: barra de feedback visual, solo en desarrollo. */}
+    {import.meta.env.DEV && <AgentationDev client:only="react" />}
   </body>
 </html>
