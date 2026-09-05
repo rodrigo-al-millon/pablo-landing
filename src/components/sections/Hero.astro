@@ -113,18 +113,21 @@ import { CTA, IS_LIVE, APP_URL } from "../../siteConfig";
     font-size: 15px;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
   }
 
   .hero__cta.btn-primary {
     background: var(--color-ambar, #fba920);
     color: #2b2c64;
     box-shadow: 0 4px 0 0 #c9820a;
+    transform: translateY(0);
   }
 
-  .hero__cta.btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 5px 0 0 #c9820a;
+  @media (hover: hover) and (pointer: fine) {
+    .hero__cta.btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 5px 0 0 #c9820a;
+    }
   }
 
   .hero__cta.btn-primary:active {
@@ -138,17 +141,40 @@ import { CTA, IS_LIVE, APP_URL } from "../../siteConfig";
     border: 2px solid #e5e5e5;
     border-bottom-width: 2px;
     box-shadow: 0 4px 0 0 #e5e5e5;
+    transform: translateY(0);
   }
 
-  .hero__cta.btn-secondary:hover {
-    background: #f7f7f7;
-    color: #f59e0b;
-    transform: translateY(-1px);
+  @media (hover: hover) and (pointer: fine) {
+    .hero__cta.btn-secondary:hover {
+      background: #f7f7f7;
+      color: #f59e0b;
+      transform: translateY(-1px);
+    }
   }
 
   .hero__cta.btn-secondary:active {
     transform: translateY(3px);
     box-shadow: 0 1px 0 0 #e5e5e5;
+  }
+
+  .hero__cta.btn-primary:active,
+  .hero__cta.btn-secondary:active {
+    transition-duration: 0.08s;
+  }
+
+  .hero__cta:focus-visible {
+    outline: 3px solid var(--color-heading);
+    outline-offset: 5px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero__cta.btn-primary,
+    .hero__cta.btn-secondary,
+    .hero__cta.btn-primary:is(:hover, :active),
+    .hero__cta.btn-secondary:is(:hover, :active) {
+      transition: none;
+      transform: none;
+    }
   }
 
   /* ── Responsive: mobile apilado, todo dentro del viewport.
